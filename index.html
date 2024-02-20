@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dom</title>
 </head>
 <body>
+    <h1 id="secret">My Dom</h1>
+    <input type="text" name="" id="delete-confirm" placeholder="Please type Delete">
+    <button id="delete-btn" disabled>Delete</button>
+    <script>
+        document.getElementById('delete-confirm').addEventListener('keyup',function(event){
+            const text=event.target.value;
+            const deleteButton = document.getElementById('delete-btn');
+            if(text==='Delete'){
+                deleteButton.removeAttribute('disabled');
+            }
+            else{
+                deleteButton.setAttribute('disabled',true);
+            }
+        })
+        document.getElementById('delete-btn').addEventListener('click',function(){
+            const secret_t= document.getElementById('secret');
+            secret_t.style.display='none';
+            document.getElementById('delete-confirm').value='';
+        })
+
+    </script>
     
 </body>
 </html>
